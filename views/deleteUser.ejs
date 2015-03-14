@@ -15,8 +15,31 @@
         </ul>
         <br>
         <div class="alert alert-success" role="alert">"수강신청포기" 를 누르면 <strong>"<%=name%>"의 이름이 "삭제"</strong> 됩니다.<br>본인이 아니라면 취소버튼을 누르세요.</div>
-        <a class="btn btn-danger btn-lg" href="/deleteUser?name=<%=name%>&id=<%=lid%>" role="button">수강신청포기</a>
+        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">
+            수강신청포기
+        </button>
         <a class="btn btn-warning btn-lg" href="/lecture/<%=lid%>" role="button">취소</a>
+
+        <!--<a class="btn btn-danger btn-lg" href="/deleteUser?name=<%=name%>&id=<%=lid%>" role="button">수강신청포기</a> -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">수강신청포기</h4>
+                    </div>
+                    <div class="modal-body">
+                        마지막으로 경고합니다.<br>이 작업은 매우 위험합니다.<br>
+                        정말로 <strong>"<%=name%>"</strong> 의 수강신청을 포기하시겠습니까?
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-default" href="/lecture/<%=lid%>" role="button">취소</a>
+                        <a class="btn btn-danger" href="/deleteUser?name=<%=name%>&id=<%=lid%>" role="button">수강신청포기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
