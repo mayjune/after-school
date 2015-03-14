@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>After School</title>
+    <link rel="stylesheet" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container">
+        <br>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">오후 강좌</a></li>
+        </ul>
+        <br>
+        <form class="form-inline" method="POST">
+            <div class="form-group">
+                <label for="input_name">이름</label>&nbsp;&nbsp;
+                <input type="text" class="form-control" name="InputName" id="input_name">
+            </div>
+            <button type="submit" class="btn btn-default">신청하기</button>
+            <div class="form-group invisible">
+                <input type="text" class="form-control" name="LectureId" value="<%=lecture_id%>" >
+                <input type="text" class="form-control" name="QuarterId" value="<%=quarter_id%>" >
+            </div>
+        </form>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

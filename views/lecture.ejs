@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>After School</title>
+    <link rel="stylesheet" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container">
+        <br>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">오후 강좌</a></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                    Quarter<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <% if (quarters.length > 0) { for (var i = 0; i < quarters.length; i++) { %>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/quarters/<%=ids[i]%>"><%=quarters[i]%></a></li>
+                    <%}%>
+                    <li role="presentation" class="divider"></li>
+                    <%}%>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/createQuarter">Create ..</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="page-header">
+            <h3><%=title%> &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-sm" href="/modifyLecture/<%=lid%>" role="button">수정</a></h3>
+        </div>
+        <h4><span class="label label-warning">강사</span>&nbsp;&nbsp;&nbsp;<%=author%></h4>
+        <h4><span class="label label-success">수강대상</span>&nbsp;&nbsp;&nbsp;<%=condition%></h4>
+        <h4><span class="label label-info">강좌진행</span>&nbsp;&nbsp;&nbsp;<%=howto%></h4>
+        <h4><span class="label label-primary">수강정원</span>&nbsp;&nbsp;&nbsp;<code><%=memnum%></code></h4>
+        <br>
+        <div class="panel panel-default panel-warning">
+            <div class="panel-heading"><h5>강좌진행계획</h5></div>
+            <!-- Table -->
+            <table class="table table-bordered table-striped">
+                <colgroup>
+                    <col class="col-xs-1">
+                    <col class="col-xs-7">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>주</th>
+                    <th>내용</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">
+                        <code>1주</code>
+                    </th>
+                    <td><%=one%></td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <code>2주</code>
+                    </th>
+                    <td><%=two%></td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <code>3주</code>
+                    </th>
+                    <td><%=three%></td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <code>4주</code>
+                    </th>
+                    <td><%=four%></td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <code>5주</code>
+                    </th>
+                    <td><%=five%></td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <code>6주</code>
+                    </th>
+                    <td><%=six%></td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <code>7주</code>
+                    </th>
+                    <td><%=seven%></td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <code>8주</code>
+                    </th>
+                    <td><%=eight%></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel panel-default panel-warning">
+            <div class="panel-heading"><h5>수강생</h5></div>
+            <div class="panel-body">
+                <% if (members[0].length > 0) {for (var i = 0; i < members.length; i++) { %>
+                <a class="btn btn-default" href="/warningDeleteUser?name=<%=members[i]%>&id=<%=lid%>" role="button">
+                    <%=members[i]%>&nbsp;<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </a> &nbsp;
+                <% }} %>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

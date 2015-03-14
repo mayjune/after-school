@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>After School</title>
+    <link rel="stylesheet" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container">
+        <br>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">오후 강좌</a></li>
+        </ul>
+        <br>
+        <div class="alert alert-success" role="alert">"수강신청포기" 를 누르면 <strong>"<%=name%>"의 이름이 "삭제"</strong> 됩니다.<br>본인이 아니라면 취소버튼을 누르세요.</div>
+        <a class="btn btn-danger btn-lg" href="/deleteUser?name=<%=name%>&id=<%=lid%>" role="button">수강신청포기</a>
+        <a class="btn btn-warning btn-lg" href="/lecture/<%=lid%>" role="button">취소</a>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

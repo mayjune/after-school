@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>After School</title>
+    <link rel="stylesheet" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container">
+        <br>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">오후 강좌</a></li>
+        </ul>
+        <div class="page-header">
+            <h3>강좌 만들기</h3>
+        </div>
+        <form method="POST" action="/createLecture">
+            <div class="form-group">
+                <label for="title">강좌 이름</label>
+                <input type="text" class="form-control" name="Title" id="title" >
+            </div>
+            <div class="form-group">
+                <label for="author">강사</label>
+                <input type="text" class="form-control" name="Author" id="author" >
+            </div>
+            <div class="form-group">
+                <label for="condition">수강대상</label>
+                <input type="text" class="form-control" name="Condition" id="condition" >
+            </div>
+            <div class="form-group ">
+                <label>수강인원</label>
+                <select name="Memnum" class="form-control">
+                    <% for (i=5; i<31; i++) { %>
+                    <option value="<%=i%>"><%=i%></option>
+                    <% }%>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="howto">강좌진행 방법</label>
+                <input type="text" class="form-control" name="Howto" id="howto" >
+            </div>
+            <label>강좌진행 계획</label>
+            <div class="form-group">
+                <label for="one">1주차</label>
+                <input type="text" class="form-control" name="One" id="one" >
+            </div>
+            <div class="form-group">
+                <label for="two">2주차</label>
+                <input type="text" class="form-control" name="Two" id="two" >
+            </div>
+            <div class="form-group">
+                <label for="three">3주차</label>
+                <input type="text" class="form-control" name="Three" id="three" >
+            </div>
+            <div class="form-group">
+                <label for="four">4주차</label>
+                <input type="text" class="form-control" name="Four" id="four" >
+            </div>
+            <div class="form-group">
+                <label for="five">5주차</label>
+                <input type="text" class="form-control" name="Five" id="five" >
+            </div>
+            <div class="form-group">
+                <label for="six">6주차</label>
+                <input type="text" class="form-control" name="Six" id="six" >
+            </div>
+            <div class="form-group">
+                <label for="seven">7주차</label>
+                <input type="text" class="form-control" name="Seven" id="seven" >
+            </div>
+            <div class="form-group">
+                <label for="eight">8주차</label>
+                <input type="text" class="form-control" name="Eight" id="eigth" >
+            </div>
+            <div class="form-group invisible">
+                <input type="text" class="form-control" name="QuarterId" value="<%=quarter_id%>" >
+            </div>
+            <button type="submit" class="btn btn-success">만들기</button>
+        </form>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>After School</title>
+    <link rel="stylesheet" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container">
+        <br>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">오후 강좌</a></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                    Quarter<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <% if (quarters.length > 0) { for (var i = 0; i < quarters.length; i++) { %>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/quarters/<%=ids[i]%>"><%=quarters[i]%></a></li>
+                    <%}%>
+                    <li role="presentation" class="divider"></li>
+                    <%}%>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/createQuarter">Create ..</a></li>
+                </ul>
+            </li>
+        </ul>
+        <% if (quarter_id > 0) {%>
+        <div class="page-header">
+            <h3><a href="/modifyQuarter/<%=quarter_id%>" ><%=quarter_name%> 오후강좌</a> &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-sm" href="/createLecture/<%=quarter_id%>" role="button">강좌만들기</a></h3>
+
+        </div>
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th>#</th>
+                <th>강좌명</th>
+                <th>강사</th>
+                <th>수강신청현황</th>
+                <th>수강신청</th>
+                <th>상세정보</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (var i = 0; i < titles.length; i++) { %>
+              <tr>
+                <th scope="row"><%=i+1%></th>
+                <td><%=titles[i]%></td>
+                <td><%=authors[i]%></td>
+                <td><code><%=memnums[i]%></code></td>
+                <td><a class="btn btn-success btn-sm <%=disabled[i]%>" href="/applyLecture?qid=<%=quarter_id%>&lid=<%=lids[i]%>" role="button">신청</a></td>
+                <td><a class="btn btn-warning btn-sm" href="/lecture/<%=lids[i]%>" role="button">보기</a></td>
+              </tr>
+              <%}%>
+            </tbody>
+          </table>
+        <%} else {%>
+        <br>
+        <div class="alert alert-warning" role="alert">
+            <a href="/createQuarter" class="alert-link">분기만들기</a> 를 눌러서 첫 분기를 만드세요.
+            <br> 또는 위의 메뉴 Quarter > create.. 를 통해서도 분기를 만들 수 있습니다.
+        </div>
+        <%}%>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
