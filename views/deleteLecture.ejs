@@ -15,8 +15,29 @@
         </ul>
         <br>
         <div class="alert alert-danger" role="alert">강좌 삭제를 누르면 <strong>"<%=title%>"</strong>에 대한 모든 데이터가 <strong>"삭제"</strong> 됩니다.<br>이것은 매우 위험한 행동입니다.<br>관리자 또는 이 강좌의 강사가 아니라면 취소버튼을 누르세요.</div>
-        <a class="btn btn-danger btn-lg" href="/deleteLecture/<%=lid%>" role="button">강좌 삭제</a>
+        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">
+           강좌삭제
+        </button>
         <a class="btn btn-warning btn-lg" href="/lecture/<%=lid%>" role="button">취소</a>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">강좌 삭제</h4>
+                    </div>
+                    <div class="modal-body">
+                        마지막 경고입니다.<br>이 작업은 매우 위험합니다.<br>
+                        정말로 이 <strong>"강좌(<%=title%>)"</strong> 를 삭제하시겠습니까?
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-default" href="/lecture/<%=lid%>" role="button">취소</a>
+                        <a class="btn btn-danger" href="/deleteLecture/<%=lid%>" role="button">강좌삭제</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
