@@ -1,3 +1,4 @@
 .idea
 after-school.iml
 node_modules
+db/mydb.db
