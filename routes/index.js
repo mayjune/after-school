@@ -69,6 +69,11 @@ router.get('/', function(req, res, next) {
     var memnums = [];
     var disabled = [];
 
+    db.serialize(function() {
+        db.run("CREATE TABLE if not exists quarters(quarter TEXT UNIQUE)");
+        db.run("CREATE TABLE if not exists lectures(quarter_id INTEGER, title TEXT, author TEXT, condition TEXT, howto TEXT, members TEXT, memnum INTEGER, one TEXT, two TEXT, three TEXT, four TEXT, five TEXT, six TEXT, seven TEXT, eight TEXT)");
+    });
+
     db.all("SELECT rowid AS id, quarter FROM quarters", function(err, rows) {
         if (err) {
             console.log('do not load quarters at home');
