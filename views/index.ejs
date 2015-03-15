@@ -9,27 +9,13 @@
   </head>
   <body>
     <div class="container">
-        <br>
-        <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#">오후 강좌</a></li>
-            <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                    Quarter<span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <% if (quarters.length > 0) { for (var i = 0; i < quarters.length; i++) { %>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/quarters/<%=ids[i]%>"><%=quarters[i]%></a></li>
-                    <%}%>
-                    <li role="presentation" class="divider"></li>
-                    <%}%>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/createQuarter">Create ..</a></li>
-                </ul>
-            </li>
-        </ul>
+        <%- include menu.ejs %>
         <% if (quarter_id > 0) {%>
         <div class="page-header">
+            <!-- 잠시 막아둔다.
             <h3><a href="/modifyQuarter/<%=quarter_id%>" ><%=quarter_name%> 오후강좌</a> &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-sm" href="/createLecture/<%=quarter_id%>" role="button">강좌만들기</a></h3>
-
+            -->
+            <h3><%=quarter_name%> 오후강좌 &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-sm" href="/createLecture/<%=quarter_id%>" role="button">강좌만들기</a></h3>
         </div>
         <table class="table table-striped">
           <thead>

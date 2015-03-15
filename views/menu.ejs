@@ -1,0 +1,19 @@
+        <br>
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">오후 강좌</a></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="/" role="button" aria-expanded="false">
+                    Quarter<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <% if (quarters.length > 0) { for (var i = 0; i < quarters.length; i++) { %>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/quarters/<%=ids[i]%>"><%=quarters[i]%></a></li>
+                    <%}%>
+                    <!-- 잠시 막아놓는다.
+                    <li role="presentation" class="divider"></li> -->
+                    <%}%>
+                    <!-- 잠시 막아 놓는다.
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/createQuarter">Create ..</a></li> -->
+                </ul>
+            </li>
+        </ul>
