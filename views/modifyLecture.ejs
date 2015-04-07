@@ -17,6 +17,13 @@
             <h3>강좌 만들기&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-sm" href="/warningDeleteLecture/<%=lid%>" role="button">강좌 삭제</a></h3>
         </div>
         <form method="POST" action="/modifyLecture">
+            <div class="form-group ">
+                <label>구분</label>
+                <select name="Kind" class="form-control">
+                    <option value="기획필수" <%=kind_selected1%>>기획필수</option>
+                    <option value="자율선택" <%=kind_selected2%>>자율선택</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label for="title">강좌 이름</label>
                 <input type="text" class="form-control" name="Title" id="title" value="<%=title%>">
