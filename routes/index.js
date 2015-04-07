@@ -191,6 +191,8 @@ router.get('/lecture/:id', function(req, res, next) {
                     var six = rows[0].six;
                     var seven = rows[0].seven;
                     var eight = rows[0].eight;
+                    var etc = rows[0].etc;
+                    var purpose = rows[0].purpose;
 
                     var memnum = '';
                     var members = rows[0].members.split('^');
@@ -201,7 +203,7 @@ router.get('/lecture/:id', function(req, res, next) {
                         memnum = '0/' + rows[0].memnum;
 
                     res.render('lecture', { quarters: quarters, ids: ids, lid: lid, title: title, author: author, condition: condition, howto: howto, members: members, memnum: memnum,
-                        one: one, two: two, three: three, four: four, five: five, six: six, seven: seven, eight: eight
+                        one: one, two: two, three: three, four: four, five: five, six: six, seven: seven, eight: eight, purpose: purpose, etc: etc
                     });
                 }
             });
@@ -348,12 +350,14 @@ router.post('/modifyLecture', function(req, res, next) {
     var six = body.Six;
     var seven = body.Seven;
     var eight = body.Eight;
+    var etc = body.Etc;
+    var purpose = body.Purpose;
 
     var db = new sqlite3.Database('db/mydb.db');
 
     var sql_stmt = 'UPDATE lectures SET title="'+title+'", author="' + author + '", condition="' + condition + '", howto="'+ howto + '", memnum='+ memnum +
         ', one="' + one + '", two="' + two + '", three="' + three + '", four="' + four + '", five="' + five + '", six="' + six + '", seven="' + seven +
-        '", eight="' + eight + '" where rowid='+lid;
+        '", eight="' + eight + '", etc="' + etc + '", purpose="'+ purpose + '" where rowid='+lid;
     //console.log(sql_stmt)
     db.run(sql_stmt);
     db.close();
@@ -386,7 +390,9 @@ router.get('/modifyLecture/:id', function(req, res, next) {
             var six = rows[0].six;
             var seven = rows[0].seven;
             var eight = rows[0].eight;
-            res.render('modifyLecture', {lid:lid, title:title, author:author, condition:condition, howto:howto, memnum:memnum, one:one, two:two, three:three, four:four, five:five, six:six, seven:seven, eight:eight});
+            var etc = rows[0].etc;
+            var purpose = rows[0].purpose;
+            res.render('modifyLecture', {lid:lid, title:title, author:author, condition:condition, howto:howto, memnum:memnum, one:one, two:two, three:three, four:four, five:five, six:six, seven:seven, eight:eight, etc:etc, purpose:purpose});
         }
     });
 });
@@ -407,12 +413,14 @@ router.post('/createLecture', function(req, res, next) {
     var six = body.Six;
     var seven = body.Seven;
     var eight = body.Eight;
+    var etc = body.Etc;
+    var purpose = body.Purpose;
 
     var db = new sqlite3.Database('db/mydb.db');
     var sql_stmt =  quarter_id + ", '" + title + "', '" + author + "', '" + condition +
         "', '" + howto + "', '', " + memnum + ", '" + one +  "', '" + two +  "', '" + three +
-        "', '" + four + "', '" + five + "', '" + six +  "', '" + seven + "', '" + eight + "'";
-    db.run("INSERT into lectures(quarter_id, title, author, condition, howto, members, memnum, one, two, three, four, five, six, seven, eight) VALUES ("+ sql_stmt+ ")", function (err){
+        "', '" + four + "', '" + five + "', '" + six +  "', '" + seven + "', '" + eight + "', '" + etc + "', '" + purpose + "'";
+    db.run("INSERT into lectures(quarter_id, title, author, condition, howto, members, memnum, one, two, three, four, five, six, seven, eight, etc, purpose) VALUES ("+ sql_stmt+ ")", function (err){
         //console.log(sql_stmt);
         if (err) {
             console.log('do not create lectrue')
@@ -446,7 +454,7 @@ router.get('/init', function(req, res, next) {
 
     db.serialize(function() {
         db.run("CREATE TABLE if not exists quarters(quarter TEXT UNIQUE)");
-        db.run("CREATE TABLE if not exists lectures(quarter_id INTEGER, title TEXT, author TEXT, condition TEXT, howto TEXT, members TEXT, memnum INTEGER, one TEXT, two TEXT, three TEXT, four TEXT, five TEXT, six TEXT, seven TEXT, eight TEXT)");
+        db.run("CREATE TABLE if not exists lectures(quarter_id INTEGER, title TEXT, author TEXT, condition TEXT, howto TEXT, members TEXT, memnum INTEGER, one TEXT, two TEXT, three TEXT, four TEXT, five TEXT, six TEXT, seven TEXT, eight TEXT, etc TEXT, purpose TEXT)");
     });
 
     db.close();

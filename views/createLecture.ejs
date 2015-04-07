@@ -26,13 +26,21 @@
                 <input type="text" class="form-control" name="Author" id="author" >
             </div>
             <div class="form-group">
+                <label for="purpose">필요성 및 목적</label>
+                <input type="text" class="form-control" name="Purpose" id="purpose" >
+            </div>
+            <div class="form-group">
                 <label for="condition">수강대상</label>
                 <input type="text" class="form-control" name="Condition" id="condition" >
+            </div>
+            <div class="form-group">
+                <label for="etc">참고사항</label>
+                <input type="text" class="form-control" name="Etc" id="etc" >
             </div>
             <div class="form-group ">
                 <label>수강인원</label>
                 <select name="Memnum" class="form-control">
-                    <% for (i=5; i<31; i++) { %>
+                    <% for (i=3; i<31; i++) { %>
                     <option value="<%=i%>"><%=i%></option>
                     <% }%>
                 </select>

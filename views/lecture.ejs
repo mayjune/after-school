@@ -13,9 +13,26 @@
         <div class="page-header">
             <h3><%=title%> &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-sm" href="/modifyLecture/<%=lid%>" role="button">수정</a></h3>
         </div>
-        <h4><span class="label label-warning">강사</span>&nbsp;&nbsp;&nbsp;<%=author%></h4>
-        <h4><span class="label label-success">수강대상</span>&nbsp;&nbsp;&nbsp;<%=condition%></h4>
-        <h4><span class="label label-info">강좌진행</span>&nbsp;&nbsp;&nbsp;<%=howto%></h4>
+        <h4><span class="label label-warning">강사</span></h4>
+        <div class="panel panel-warning">
+            <div class="panel-body"><%=author%></div>
+        </div>
+        <h4><span class="label label-danger">필요성 및 목적</span></h4>
+        <div class="panel panel-danger">
+            <div class="panel-body"><%=purpose%></div>
+        </div>
+        <h4><span class="label label-success">수강대상</span></h4>
+        <div class="panel panel-success">
+            <div class="panel-body"><%=condition%></div>
+        </div>
+        <h4><span class="label label-info">강좌진행</span></h4>
+        <div class="panel panel-danger">
+            <div class="panel-body"><%=howto%></div>
+        </div>
+        <h4><span class="label label-default">참고사항</span></h4>
+        <div class="panel panel-default">
+            <div class="panel-body"><%=etc%></div>
+        </div>
         <h4><span class="label label-primary">수강정원</span>&nbsp;&nbsp;&nbsp;<code><%=memnum%></code></h4>
         <br>
         <div class="panel panel-default panel-warning">

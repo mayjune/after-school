@@ -26,13 +26,21 @@
                 <input type="text" class="form-control" name="Author" id="author" value="<%=author%>" >
             </div>
             <div class="form-group">
+                <label for="purpose">필요성 및 목적</label>
+                <input type="text" class="form-control" name="Purpose" id="purpose" value="<%=purpose%>" >
+            </div>
+            <div class="form-group">
                 <label for="condition">수강대상</label>
                 <input type="text" class="form-control" name="Condition" id="condition" value="<%=condition%>">
+            </div>
+            <div class="form-group">
+                <label for="etc">참고사항</label>
+                <input type="text" class="form-control" name="Etc" id="etc" value="<%=etc%>" >
             </div>
             <div class="form-group ">
                 <label>수강인원</label>
                 <select name="Memnum" class="form-control">
-                    <% for (i=5; i<31; i++) { if (memnum == i) {%>
+                    <% for (i=3; i<31; i++) { if (memnum == i) {%>
                     <option value="<%=i%>" selected><%=i%></option>
                    <%} else {%>
                     <option value="<%=i%>"><%=i%></option>
@@ -76,11 +84,11 @@
                 <label for="eight">8주차</label>
                 <input type="text" class="form-control" name="Eight" id="eigth" value="<%=eight%>">
             </div>
+            <button type="submit" class="btn btn-success">수정</button>
+            <a class="btn btn-warning" href="/lecture/<%=lid%>" role="button">취소</a>
             <div class="form-group invisible">
                 <input type="text" class="form-control" name="LectureId" value="<%=lid%>" >
             </div>
-            <button type="submit" class="btn btn-success">수정</button>
-            <a class="btn btn-warning" href="/lecture/<%=lid%>" role="button">취소</a>
         </form>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
