@@ -436,7 +436,7 @@ router.post('/createLecture', function(req, res, next) {
     var purpose = body.Purpose.replace(/'/g, '"');
 
     var db = new sqlite3.Database('db/mydb.db');
-    var sql_stmt =  quarter_id + ", '" + kind + ", '"+ title + "', '" + author + "', '" + condition +
+    var sql_stmt =  quarter_id + ", '" + kind + "', '"+ title + "', '" + author + "', '" + condition +
         "', '" + howto + "', '', " + memnum + ", '" + one +  "', '" + two +  "', '" + three +
         "', '" + four + "', '" + five + "', '" + six +  "', '" + seven + "', '" + eight + "', '" + etc + "', '" + purpose + "'";
     db.run("INSERT into lectures(quarter_id, kind, title, author, condition, howto, members, memnum, one, two, three, four, five, six, seven, eight, etc, purpose) VALUES ("+ sql_stmt+ ")", function (err){
