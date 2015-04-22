@@ -11,7 +11,10 @@
     <div class="container">
         <%- include menu.ejs %>
         <div class="page-header">
-            <h3>[<%=kind%>]&nbsp;<%=title%> &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-sm" href="/modifyLecture/<%=lid%>" role="button">수정</a></h3>
+            <div class="row">
+                <div class="col-md-8"><h4>[<%=kind%>]&nbsp;<%=title%></h4></div>
+                <div class="col-md-4"><a class="btn btn-danger btn-sm" href="/modifyLecture/<%=lid%>" role="button">수정</a></div>
+            </div>
         </div>
         <h4><span class="label label-warning">강사</span></h4>
         <div class="panel panel-warning">
