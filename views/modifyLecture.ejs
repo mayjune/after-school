@@ -18,6 +18,14 @@
         </div>
         <form method="POST" action="/modifyLecture">
             <div class="form-group ">
+                <label>세대</label>
+                <select name="Age" class="form-control">
+                    <option value="공통" <%=age_selected0%>>공통</option>
+                    <option value="장년" <%=age_selected1%>>장년</option>
+                    <option value="청년" <%=age_selected2%>>청년</option>
+                </select>
+            </div>
+            <div class="form-group ">
                 <label>구분</label>
                 <select name="Kind" class="form-control">
                     <option value="기획필수" <%=kind_selected1%>>기획필수</option>

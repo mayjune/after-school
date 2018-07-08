@@ -12,10 +12,7 @@
         <%- include menu.ejs %>
         <% if (quarter_id > 0) {%>
         <div class="page-header">
-            <!-- 잠시 막아둔다.
             <h3><a href="/modifyQuarter/<%=quarter_id%>" ><%=quarter_name%> 오후강좌</a> &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-sm" href="/createLecture/<%=quarter_id%>" role="button">강좌만들기</a></h3>
-            -->
-            <h3><%=quarter_name%> 오후강좌 &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-sm" href="/createLecture/<%=quarter_id%>" role="button">강좌만들기</a></h3>
         </div>
         <table class="table table-striped">
           <thead>
@@ -34,9 +31,25 @@
               <tr>
                 <th scope="row"><%=i+1%></th>
                 <% if (kinds[i] == "기획필수") {%>
-                <td><span class="label label-danger">필</span></td>
+                <td>
+                <% if (ages[i] == "장년") {%>
+                <span class="label label-success">
+                <% } else if (ages[i] == "청년") {%>
+                <span class="label label-warning">
+                <% } else { %>
+                <span class="label label-info">
+                <% } %>
+                <%=ages[i]%></span> <span class="label label-danger">필</span></td>
                 <% } else {%>
-                <td><span class="label label-primary">선</span></td>
+                <td>
+                <% if (ages[i] == "장년") {%>
+                <span class="label label-success">
+                <% } else if (ages[i] == "청년") {%>
+                <span class="label label-warning">
+                <% } else { %>
+                <span class="label label-info">
+                <% } %>
+                <%=ages[i]%></span> <span class="label label-primary">선</span></td>
                 <% } %>
                 <td><%=titles[i]%></td>
                 <td><%=authors[i]%></td>
